@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Novo titulo do ABOUT US{% endblock %}
+
+{% block 'conteudo' %}
+<div class="quadro_azul">
+    <h1>Novo conteudo do ABOUT US</h1>
+    <h2>Siga no instagram</h2>
+    <img src="{% static 'main/image/django.png' %}">
+</div>
+{% endblock %}

@@ -1,0 +1,15 @@
+* {
+    margin: 0px; padding: 0px;
+}
+
+h1 {
+    font-size: 32px; color: green; text-align: center; font-family: Arial;
+}
+
+h2 {
+    font-size: 22px; color: pink; text-align: center;
+}
+
+img {
+    width: 200px; height: 200px; display: block; margin: auto; 
+}

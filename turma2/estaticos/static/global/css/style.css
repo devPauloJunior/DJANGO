@@ -1,0 +1,11 @@
+* {
+    margin: 0px; padding: 0px;
+}
+
+body {
+    background-color: burlywood;
+}
+
+.quadro_azul {
+    width: 60%; background-color: white; margin: auto;
+}

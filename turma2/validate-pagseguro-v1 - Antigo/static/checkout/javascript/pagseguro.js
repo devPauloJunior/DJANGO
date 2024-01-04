@@ -1,0 +1,1 @@
+console.log("Ok do pagseguro.js")

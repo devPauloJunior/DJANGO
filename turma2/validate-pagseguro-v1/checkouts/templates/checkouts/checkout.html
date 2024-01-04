@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'checkout/css/styles.css' %}">
+</head>
+
+<body>
+
+<h2>Checkout PagSeguro</h2>
+<form action="" method="post">
+    {% csrf_token %}
+    <label for="nome">
+        Nome: <input type="text" name="name" id="name">
+    </label>
+    <label for="email">
+        E-mail: <input type="email" name="email" id="email">
+    </label>
+    <label for="cpf">
+        E-mail: <input type="text" name="cpf" id="cpf">
+    </label>
+    <label for="area_code">
+        DDD: <input type="text" name="area_code" id="area_code">
+    </label>
+    <label for="phone">
+        Telefones: <input type="tel" name="phone" id="phone">
+    </label>
+    <label for="itemId">
+        Item ID: <input type="text" name="itemId" id="itemId">
+    </label>
+    <label for="itemDescription">
+        Item Descrição: <input type="text" name="itemDescription" id="itemDescription">
+    </label>
+    <label for="itemAmount">
+        Item Valor: <input type="text" name="itemAmount" id="itemAmount">
+    </label>
+    <label for="itemQuantity">
+        Item Quantidade: <input type="text" name="itemQuantity" id="itemQuantity">
+    </label>
+    <label for="senderHash">
+        Sender hash: <input type="text" id="senderHash" name="senderHash" value="">
+    </label>
+    <input type="submit" name="botaoComprar" id="botaoComprar" value="Comprar" />
+</form>
+    <!-- Incluíndo o arquivo JS do PagSeguro e o JQuery-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="https://stc.sandbox.pagseguro.uol.com.br/pagseguro/api/v2/checkout/pagseguro.directpayment.js"></script>
+    
+    <!-- Funcionalidade do JS -->
+    <script>
+        const senderHash = window.addEventListener('message', function(event) {
+            data = JSON.parse(event.data)
+            document.getElementById("senderHash").value = data['result']
+            console.log(data)
+        });
+        console.log(window.parent);
+    </script>
+</body>
+</html>

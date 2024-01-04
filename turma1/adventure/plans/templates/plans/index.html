@@ -1,0 +1,23 @@
+{% include 'global/index.html' %}
+{% load static %}
+<body>
+    {% include 'global/partials/header.html' %}
+    <main class="container my-5">
+        <div class="row row-cols-2">
+            {% for plano in planos %}
+            <div class="col">
+                <img src="{% static 'global/image/rio.png' %}" alt="">
+                <h3>Titulo: {{ plano.titulo }}</h3>
+                <p>Descrição: {{ plano.description }}</p>
+                <p>Tipo de Pacote: {{ plano.type_plan }}</p>
+                <hr>
+                <span>Duração da Viagem: {{ plano.duration }} dias</span>
+                <p>Roteriro: {{ plano.road_map }}</p>
+                <span>Preço do Pacote: R${{ plano.value }}</span>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+    {% include 'global/partials/footer.html' %}
+</body>
+</html>

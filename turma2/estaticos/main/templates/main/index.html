@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block 'titulo' %}Novo titulo do INDEX{% endblock %}
+
+{% block 'conteudo' %}
+<h1>Novo conteudo do INDEX</h1>
+<h2>Venha conferir</h2>
+<img src="{% static 'main/image/django.png' %}">
+{% endblock %}
