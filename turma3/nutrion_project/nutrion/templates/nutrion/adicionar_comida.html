@@ -1,0 +1,26 @@
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nutrion - Adicionar Comida</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <h2>Adicione suas comidas abaixo:</h2>
+    <a href="{% url 'index' %}">INDEX</a>
+    <div class="container">
+        <h3>Adicionar Comida</h3>
+        {% bootstrap_messages %}
+        <form action="{% url 'adicionar_comida' %}" method="post" autocomplete="off">
+            {% csrf_token %}
+            {% bootstrap_form form %}
+            {% buttons %}
+                <button type="submit" class="btn btn_warning">Adicionar</button>
+            {% endbuttons %}
+        </form>
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>

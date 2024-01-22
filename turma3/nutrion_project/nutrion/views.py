@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
 from .models import Food, Consumed
+from .forms import FoodModelForm
+from django.contrib import messages
 
 def index(request):
     if request.method == 'POST':
@@ -26,3 +28,17 @@ def delete_comida(request, id):
         comida_consumida.delete()
         return redirect('/')
     return render(request, 'nutrion/delete.html')
+
+def adicionar_comida(request):
+    if str(request.method) == 'POST':
+        form = FoodModelForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Comida adicionada com SUCESSO!')
+            form = FoodModelForm()
+        else:
+            messages.error(request, 'Comida NÃO cadastrada!')
+    else:
+        form = FoodModelForm()
+
+    return render(request, 'nutrion/adicionar_comida.html', { 'form': form })
