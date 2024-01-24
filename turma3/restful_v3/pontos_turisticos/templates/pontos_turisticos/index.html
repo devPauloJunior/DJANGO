@@ -1,0 +1,23 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pontos Turísticos - Lista</title>
+</head>
+<body>
+    <div style="width: 900px; margin: 20px auto;">
+        {% for ponto_turistico in pontos_turisticos %}
+            <div>
+                <img src="media/{{ ponto_turistico.photo }}" width="300" heigth="300">
+                <h3>Nome: {{ ponto_turistico.name }}</h3>
+                <p>Descrição: {{ ponto_turistico.description }}</p>
+                <p>Comentários: {{ ponto_turistico.comments }}</p>
+                <p>Endereço: {{ ponto_turistico.address }}</p>
+                <span>Avaliação: {{ ponto_turistico.valuation }}</span>
+            </div>
+        {% endfor %}
+    </div>    
+</body>
+</html>
