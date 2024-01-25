@@ -8,6 +8,8 @@
 </head>
 <body>
     <div style="width: 900px; margin: 20px auto;">
+        <a href="{% url 'register' %}">CADASTRO DE PONTOS TURÍSTICOS</a>
+        <br><br>
         {% for ponto_turistico in pontos_turisticos %}
             <div>
                 <img src="media/{{ ponto_turistico.photo }}" width="300" heigth="300">
