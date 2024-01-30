@@ -1,0 +1,30 @@
+{% load static %}
+{% load bootstrap5 %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Filmes</title>
+    {% bootstrap_css %}
+</head>
+<body>
+    <div class="container">
+        <a href="{% url 'cadastro' %}">Cadastrar Filme</a>
+        <div class="row">
+            {% for filme in filmes %}
+            <div class="col">
+                <img src="media/{{ filme.imagem }}" class="img-thumbnail" alt="Capa do Filme">
+                <h2>TITULO: {{ filme.titulo }}</h2>
+                <h3>Diretor: {{ filme.diretor }}</h3>
+                <p>Sinopse: {{ filme.sinopse }}</p>
+                <span>Ano de Lançamento: {{ filme.ano_lancamento }}</span><br>
+                <span>Duração: {{ filme.duracao }}min </span><br>
+                <span>Genero: {{ filme.get_genero_display }}</span><br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+    {% bootstrap_javascript %}
+</body>
+</html>
