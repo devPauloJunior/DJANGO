@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import Filme
 from django.contrib import messages
 from .forms import FilmeForm
@@ -23,3 +23,10 @@ def cadastro(request):
         form = FilmeForm()
     
     return render(request, 'cat_filmes/cadastro.html', { 'form': form})
+
+def deletar(request, id):
+    deleteme = Filme.objects.get(id=id)
+    if request.method == 'POST':
+        deleteme.delete()
+        return redirect('/')
+    return render(request, 'cat_filmes/deletar.html')
