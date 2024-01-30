@@ -11,3 +11,4 @@ class ProdutoModelForm(forms.ModelForm):
     class Meta:
         model = Produto
         fields = ['nome_produto', 'preco', 'imagem_produto', 'descricao']
+        fields = '__all__'

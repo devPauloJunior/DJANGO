@@ -1,0 +1,1 @@
+Criar um ambiente com DJANGO e RESTFUL que na pagina index mostre as reauniões a serem realizadas e com a posibilidade de deletar a reunião. Na pagina de cadastro eu posso cadastrar novas reuniões. E a minha API disponibiliza minhas runiões para serem consumidas. Titulo, descrição, local, nome do participante, dia e horario.
